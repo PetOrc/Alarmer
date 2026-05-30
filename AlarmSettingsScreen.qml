@@ -57,6 +57,11 @@ Page {
 
             onClicked: {
 
+                stackView.push(
+                    Qt.resolvedUrl(
+                        "MelodySelectionScreen.qml"
+                    )
+                )
             }
         }
 
@@ -68,6 +73,14 @@ Page {
 
             onClicked: {
 
+                stackView.push(
+                    Qt.resolvedUrl(
+                        "PuzzleSelectionScreen.qml"
+                    ),
+                    {
+                        stackView: stackView
+                    }
+                )
             }
         }
 

@@ -13,7 +13,7 @@ qt_add_executable(appalarmer
     main.cpp
     Alarm.cpp
     AlarmModel.cpp
-    AlarmManager.cpp
+
 )
 
 qt_add_qml_module(appalarmer
@@ -30,13 +30,21 @@ qt_add_qml_module(appalarmer
         AppSwitch.qml
         AppSlider.qml
         AppSettingsTile.qml
+        ExpandableSection.qml
+        MelodyItem.qml
+        MelodySelectionScreen.qml
+        AppTopBar.qml
+        PuzzleModeItem.qml
+        PuzzleSelectionScreen.qml
+        WarningDialog.qml
+        ConfirmDialog.qml
         SOURCES Alarm.h
         SOURCES Alarm.cpp
         SOURCES AlarmModel.h
         SOURCES AlarmModel.cpp
         QML_FILES AlarmCard.qml
-        SOURCES AlarmManager.h
-        SOURCES AlarmManager.cpp
+        SOURCES
+        SOURCES
         QML_FILES AlarmListScreen.qml
         QML_FILES AlarmSettingsScreen.qml
         QML_FILES AppIconButton.qml
@@ -47,6 +55,15 @@ qt_add_qml_module(appalarmer
         QML_FILES AppSlider.qml
         QML_FILES AppSettingsTile.qml
         SOURCES AlarmData.h
+        QML_FILES MelodySelectionScreen.qml
+        QML_FILES MelodyItem.qml
+        QML_FILES ExpandableSection.qml
+        QML_FILES AppTopBar.qml
+        QML_FILES BackButton.qml
+        QML_FILES PuzzleModeItem.qml
+        QML_FILES PuzzleSelectionScreen.qml
+        QML_FILES WarningDialog.qml
+        QML_FILES ConfirmDialog.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

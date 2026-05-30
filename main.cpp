@@ -18,18 +18,6 @@ int main(int argc, char *argv[])
         &alarmModel
         );
 
-    AlarmManager alarmManager;
-
-    engine.rootContext()->setContextProperty(
-        "alarmManager",
-        &alarmManager
-        );
-
-    engine.rootContext()->setContextProperty(
-        "alarmModel",
-        alarmManager.model()
-        );
-
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

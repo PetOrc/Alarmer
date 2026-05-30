@@ -1,4 +1,7 @@
 #include "AlarmManager.h"
+#include "Alarm.h"
+
+#include <QTime>
 
 AlarmManager::AlarmManager(QObject *parent)
     : QObject(parent),

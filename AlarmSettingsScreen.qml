@@ -56,13 +56,14 @@ Page {
             subtitle: "Classic Alarm"
 
             onClicked: {
-
-                stackView.push(
-                    Qt.resolvedUrl(
-                        "MelodySelectionScreen.qml"
-                    )
-                )
-            }
+                    stackView.push("PuzzleSelectionScreen.qml", {
+                        currentPuzzleMode: currentAlarm.puzzleMode,
+                        onSelected: function(mode) {
+                            currentAlarm.puzzleMode = mode
+                            stackView.pop()
+                        }
+                    })
+                }
         }
 
         AppSettingsTile {

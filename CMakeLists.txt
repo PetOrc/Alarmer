@@ -13,7 +13,6 @@ qt_add_executable(appalarmer
     main.cpp
     Alarm.cpp
     AlarmModel.cpp
-
 )
 
 qt_add_qml_module(appalarmer
@@ -34,43 +33,17 @@ qt_add_qml_module(appalarmer
         MelodyItem.qml
         MelodySelectionScreen.qml
         AppTopBar.qml
-        PuzzleModeItem.qml
+        BackButton.qml
+        PuzzleModelItem.qml
         PuzzleSelectionScreen.qml
         WarningDialog.qml
         ConfirmDialog.qml
-        SOURCES Alarm.h
-        SOURCES Alarm.cpp
-        SOURCES AlarmModel.h
-        SOURCES AlarmModel.cpp
-        QML_FILES AlarmCard.qml
-        SOURCES
-        SOURCES
-        QML_FILES AlarmListScreen.qml
-        QML_FILES AlarmSettingsScreen.qml
-        QML_FILES AppIconButton.qml
-        QML_FILES TimePicker.qml
-        QML_FILES AppArrowButton.qml
-        QML_FILES AppCanvasButton.qml
-        QML_FILES AppSwitch.qml
-        QML_FILES AppSlider.qml
-        QML_FILES AppSettingsTile.qml
-        SOURCES AlarmData.h
-        QML_FILES MelodySelectionScreen.qml
-        QML_FILES MelodyItem.qml
-        QML_FILES ExpandableSection.qml
-        QML_FILES AppTopBar.qml
-        QML_FILES BackButton.qml
-        QML_FILES PuzzleModeItem.qml
-        QML_FILES PuzzleSelectionScreen.qml
-        QML_FILES WarningDialog.qml
-        QML_FILES ConfirmDialog.qml
+    SOURCES
+        Alarm.cpp
+        AlarmModel.cpp
 )
 
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
 set_target_properties(appalarmer PROPERTIES
-#    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appalarmer
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE

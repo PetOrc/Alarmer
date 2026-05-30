@@ -2,107 +2,56 @@ import QtQuick
 import QtQuick.Controls
 
 Page {
-
     id: root
 
-    property string selectedMelody: "Classic Alarm"
+    property var stackView
+    property int currentPuzzleMode: 0
+    property var onSelected
 
-    Rectangle {
-
-        anchors.fill: parent
-
-        color: "#101814"
+    background: Rectangle {
+        color: "#0f1a16"
     }
 
-    Flickable {
+    AppTopBar {
+        id: topBar
+        title: "Выбор головоломки"
+        stackView: root.stackView
+    }
 
-        anchors.fill: parent
+    Column {
+        anchors.top: topBar.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.margins: 16
+        spacing: 12
 
-        contentWidth: width
-        contentHeight: contentColumn.height + 40
-
-        Column {
-
-            id: contentColumn
-
-            width: parent.width
-
-            spacing: 16
-
-            anchors.margins: 16
-
-            AppTopBar {
-
-                title: "Выбор мелодии"
+        // Вариант 1: Без головоломки
+        AppSettingsTile {
+            title: "Выключить как обычно"
+            description: "Без дополнительных заданий"
+            onClicked: {
+                if (root.onSelected) root.onSelected(0)
+                if (root.stackView) root.stackView.pop()
             }
+        }
 
-            ExpandableSection {
-
-                width: parent.width
-
-                title: "Мелодии"
-
-                expanded: true
-
-                MelodyItem {
-
-                    melodyName: "Classic Alarm"
-
-                    selected: root.selectedMelody === melodyName
-
-                    onClicked: root.selectedMelody = melodyName
-                }
-
-                MelodyItem {
-
-                    melodyName: "Digital Bell"
-
-                    selected: root.selectedMelody === melodyName
-
-                    onClicked: root.selectedMelody = melodyName
-                }
-
-                MelodyItem {
-
-                    melodyName: "Morning Light"
-
-                    selected: root.selectedMelody === melodyName
-
-                    onClicked: root.selectedMelody = melodyName
-                }
-
-                AppSettingsTile {
-
-                    title: "Добавить мелодию"
-
-                    subtitle: "Выбрать аудиофайл"
-
-                    onClicked: {
-
-                        console.log("Открыть FileDialog")
-                    }
-                }
+        // Вариант 2: Математическая задача
+        AppSettingsTile {
+            title: "Математическая задача"
+            description: "Решите простой пример"
+            onClicked: {
+                if (root.onSelected) root.onSelected(1)
+                if (root.stackView) root.stackView.pop()
             }
+        }
 
-            ExpandableSection {
-
-                width: parent.width
-
-                title: "Плейлисты"
-
-                expanded: false
-
-                AppSettingsTile {
-
-                    title: "Создать плейлист"
-
-                    subtitle: "Новый список воспроизведения"
-
-                    onClicked: {
-
-                        console.log("Создать плейлист")
-                    }
-                }
+        // Вариант 3: Тряска телефона
+        AppSettingsTile {
+            title: "Тряска телефона"
+            description: "Потрясите устройство"
+            onClicked: {
+                if (root.onSelected) root.onSelected(2)
+                if (root.stackView) root.stackView.pop()
             }
         }
     }
